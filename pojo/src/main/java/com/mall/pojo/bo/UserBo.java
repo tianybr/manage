@@ -1,29 +1,30 @@
 package com.mall.pojo.bo;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.mall.pojo.validator.annotation.UserBoValidator;
-import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 /**
  * @author bryin
- * @create 2020-05-18 17:06
+ * @create 2020-05-19 21:35
  */
-@Data
-@UserBoValidator
+@ApiModel("新增用户时传递的参数")
 public class UserBo {
-    private String id;
-    @NotEmpty(message = "用户名不能为空")
+    @ApiModelProperty("用户名")
     private String username;
+    @ApiModelProperty("手机号")
+    private String telephone;
+    @ApiModelProperty("邮箱")
+    private String mail;
+    @ApiModelProperty("密码")
     private String password;
-    private String face;
-    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss",timezone="GMT+8")
-    private Date createdTime;
-    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss",timezone="GMT+8")
-    private Date updatedTime;
+    @ApiModelProperty("确认密码")
+    private String confirmPassword;
+    @ApiModelProperty("部门id")
+    private String deptId;
+    @ApiModelProperty("状态")
+    private Integer status;
+    @ApiModelProperty("备注")
+    private String remark;
 }

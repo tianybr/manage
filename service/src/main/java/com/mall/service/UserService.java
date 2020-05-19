@@ -1,12 +1,12 @@
-package com.mall.mapper;
+package com.mall.service;
 
 import com.mall.pojo.User;
 
 /**
  * @author bryin
- * @create 2020-05-19 21:40
+ * @create 2020-05-19 21:30
  */
-public interface UserMapper {
+public interface UserService {
     /**
      * 新增用户
      * @param user 传递的用户参数对象
