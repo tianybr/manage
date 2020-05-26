@@ -4,6 +4,6 @@
     <insert id="addUser">
         insert into sys_user
         (id,username,telephone,mail,password,dept_id,status,remark,operator,operator_time,operator_ip)
-        value(id,username,telephone,mail,password,deptId,status,remark,operator,operatorTime,operatorIp)
+        values(id,username,telephone,mail,password,deptId,status,remark,operator,operatorTime,operatorIp)
     </insert>
 </mapper>

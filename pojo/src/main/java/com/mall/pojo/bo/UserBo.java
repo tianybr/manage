@@ -2,6 +2,7 @@ package com.mall.pojo.bo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import java.util.Date;
 
@@ -10,6 +11,7 @@ import java.util.Date;
  * @create 2020-05-19 21:35
  */
 @ApiModel("新增用户时传递的参数")
+@Data
 public class UserBo {
     @ApiModelProperty("用户名")
     private String username;

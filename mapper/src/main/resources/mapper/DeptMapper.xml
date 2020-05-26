@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.mapper.DeptMapper" >
+    <sql id="base_field">
+        id,name,parent_id,level,seq,remark,operator,operate_time,operate_ip
+    </sql>
+    <insert id="add" parameterType="com.mall.pojo.Dept">
+        insert into sys_dept
+        (id,name,parent_id,level,seq,remark,operator,operate_time,operate_ip)
+        values (#{id},#{name},#{parentId},#{level},#{seq},#{remark},#{operator},#{operateTime},#{operateIp})
+    </insert>
+    <update id="update">
+        update sys_dept
+        set name =  #{name},
+        parent_id =  #{parentId},
+        level =  #{level},
+        seq =  #{seq},
+        remark =  #{remark},
+        operator =  #{operator},
+        operate_time =  #{operateTime},
+        operate_ip =  #{operateIp}
+        where
+        id = #{id}
+    </update>
+    <delete id="del">
+        delete from sys_dept
+        where id = #{id}
+    </delete>
+    <select id="selectDeptByPrimaryKey" resultType="com.mall.pojo.Dept">
+        select <include refid="base_field" />
+        from sys_dept
+        where id = #{deptId}
+    </select>
+    <select id="countDeptByParentIdAndName" resultType="java.lang.Integer" parameterType="map">
+        select  count(1)
+        from sys_dept
+        where
+        parent_id = #{parentId}
+        and
+        name = #{deptName}
+        <if test="deptId != null">
+            and
+            id != #{deptId}
+        </if>
+    </select>
+    <select id="getAllDept" resultType="com.mall.pojo.Dept">
+        select
+        <include refid="base_field"></include>
+        from sys_dept
+    </select>
+    <select id="selectDeptByParentId" resultType="java.lang.Integer">
+        select count(1)
+        from sys_dept
+        where parent_id = #{parentId}
+    </select>
+
+</mapper>
